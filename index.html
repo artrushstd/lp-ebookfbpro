@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Facebook Pro - Cara Cuan dari Rumah</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans for that clean, geometric Swiss look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* SWISS MINIMALIST & SAAS DESIGN SYSTEM */
+        :root {
+            --ink: #050505;
+            --ink-light: #4A4A4A;
+            --ink-lighter: #888888;
+            --surface: #FFFFFF;
+            --surface-alt: #F9F9F9;
+            --border: #E5E5E5;
+            --accent: #FF5A00; /* Punchy SaaS orange */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #F2F2F2;
+            color: var(--ink);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Editorial Container */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--surface);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+
+        /* ART-DIRECTED GRADIENT BACKGROUNDS (Mesh Gradients) */
+        .ambient-gradient-1 {
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 90, 0, 0.15) 0%, rgba(255, 140, 0, 0) 60%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .ambient-gradient-2 {
+            position: absolute;
+            top: 20%;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(90, 0, 255, 0.08) 0%, rgba(90, 0, 255, 0) 60%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Layout Basics */
+        .section {
+            padding: 40px 32px;
+            position: relative;
+            z-index: 1;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-of-type { border-bottom: none; }
+
+        /* Typography - Swiss Style (High Contrast, Left Aligned) */
+        .kicker {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--ink);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--ink);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--ink-light);
+            font-weight: 400;
+        }
+
+        /* Hero Image - Sharp, Editorial Frame */
+        .hero-frame {
+            margin: 0 32px 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            filter: contrast(1.05) saturate(1.1); /* Editorial photo finish */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        /* List Items - Minimalist SVG */
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--surface-alt);
+        }
+        
+        .list-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .list-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-icon svg { width: 18px; height: 18px; stroke-width: 2.5px; }
+        .icon-cross { stroke: #D0021B; }
+        .icon-check { stroke: var(--ink); }
+
+        .list-text strong {
+            color: var(--ink);
+            font-weight: 800;
+        }
+
+        .list-text {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+            line-height: 1.4;
+        }
+
+        /* Reviews Section - Stark & Clean */
+        .reviews-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 12px;
+            margin-top: 24px;
+        }
+        
+        /* Minimalist Scrollbar */
+        .reviews-container::-webkit-scrollbar { width: 4px; }
+        .reviews-container::-webkit-scrollbar-track { background: transparent; }
+        .reviews-container::-webkit-scrollbar-thumb { background: #D9D9D9; border-radius: 4px; }
+
+        .review-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .review-item:last-child { border-bottom: none; }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar-minimal {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--surface-alt);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-lighter);
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--ink);
+        }
+
+        .stars {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--ink);
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            font-style: normal;
+        }
+
+        /* Pricing - Editorial Large Typography */
+        .pricing-section {
+            text-align: left;
+            background-color: var(--surface-alt);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--ink-lighter);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .price-strike {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: var(--ink-lighter);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .price-final {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        /* CTA Section & Button (SILICON VALLEY GLASSMORPHISM) */
+        .cta-wrapper {
+            position: sticky;
+            bottom: 0;
+            padding: 24px 32px 32px;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 30%, rgba(255,255,255,1) 100%);
+            z-index: 10;
+        }
+
+        .btn-primary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            text-decoration: none;
+            padding: 20px 24px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border-radius: 16px; /* Rounded corners ala Apple/Silicon Valley */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            /* Glassmorphism Effect */
+            background: rgba(10, 10, 10, 0.7); /* Translucent dark */
+            backdrop-filter: blur(16px); /* The magic blur */
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Light reflection edge */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+            color: var(--surface);
+        }
+
+        .btn-primary:hover {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover .btn-icon {
+            transform: translateX(6px);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--ink-lighter);
+            margin-top: 16px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Art-Directed Gradient Backgrounds -->
+        <div class="ambient-gradient-1"></div>
+        <div class="ambient-gradient-2"></div>
+
+        <!-- HEADER -->
+        <div class="section" style="padding-top: 60px; padding-bottom: 30px;">
+            <span class="kicker">Rahasia Cuan dari Rumah</span>
+            <h1>Sulap Akun Facebook Kamu Jadi Mesin Pencetak Uang!</h1>
+            <p>Gak perlu jago ngomong, gak butuh kamera mahal, cukup modal HP dan rebahan di rumah udah bisa mulai.</p>
+        </div>
+
+        <!-- HERO IMAGE -->
+        <div class="hero-frame">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop" alt="Facebook Pro Guide" class="hero-image">
+        </div>
+
+        <!-- PAIN POINTS -->
+        <div class="section">
+            <h2>Sering ngerasa gini gak sih?</h2>
+            
+            <div class="list-item">
+                <div class="list-icon"><svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+                <div class="list-text">Pengen banget dapet penghasilan tambahan, tapi bingung <strong>harus mulai dari mana.</strong></div>
+            </div>
+            <div class="list-item">
+                <div class="list-icon"><svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+                <div class="list-text">Mupeng liat orang jadi kreator, tapi <strong>minder parah</strong> kalau disuruh tampil di depan kamera.</div>
+            </div>
+            <div class="list-item">
+                <div class="list-icon"><svg class="icon-cross" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+                <div class="list-text">Tiap hari cuma scroll sosmed buang-buang waktu & kuota <strong>tanpa dapet duit sepeser pun.</strong></div>
+            </div>
+        </div>
+
+        <!-- BENEFITS / FEATURES -->
+        <div class="section">
+            <h2>Tenang, ini dia solusinya!</h2>
+            
+            <div class="list-item">
+                <div class="list-icon"><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="list-text"><strong>Setting Akun Sampai Jadi.</strong> Bakal diajarin step-by-step dari nol banget, bahasanya gampang dimengerti khusus buat pemula.</div>
+            </div>
+            <div class="list-item">
+                <div class="list-icon"><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="list-text"><strong>Cocok Buat Kaum Introvert.</strong> Kamu tetep bisa bikin konten kece tanpa harus ngomong atau nunjukin muka sama sekali.</div>
+            </div>
+            <div class="list-item">
+                <div class="list-icon"><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="list-text"><strong>Cukup Sekali Bayar.</strong> Akses ilmunya seumur hidup, tanpa ada embel-embel biaya langganan bulanan yang bikin boncos.</div>
+            </div>
+        </div>
+
+        <!-- REVIEWS / SOCIAL PROOF -->
+        <div class="section">
+            <h2>Apa kata mereka yang udah praktek?</h2>
+            
+            <!-- Reusable SVG Icon for minimalist avatars -->
+            <svg style="display:none;">
+                <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </symbol>
+            </svg>
+
+            <div class="reviews-container">
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Bunda Fitri</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Gampang banget dipraktekin buat emak-emak kayak aku. Panduannya jelas, harganya merakyat abis!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Sari Wulandari</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Pas banget buat aku yang pemalu. Bikin konten jadi asik tanpa harus nongol di kamera. Auto cuan!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Dewi Lestari</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Hemat waktu banget. Enak dipelajari pas lagi nyantai, materinya langsung ngena ke inti nggak bertele-tele."</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Mama Reyhan</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Baru 3 hari praktek, akun langsung rapi dan interaksinya naik drastis. Keren parah!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Rini Anggraeni</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Awalnya mikir 'masa sih cuma 19rb?', eh pas buka ternyata isi materinya daging banget, di luar nurul!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Ummu Kalsum</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Enak banget dibacanya, gak pusing. Terus yang paling penting, semua bisa dikerjain cuma modal HP doang."</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Tatik</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Ngebantu banget buat ngerti aturan monetisasi FB yang kadang bikin ribet. Wajib punya sih ini!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Bunda Aisyah</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Daripada 19rb habis buat jajan seblak, mending buat beli ilmu mahal ini. Bakal balik modal berkali-kali lipat!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Nurul Hidayah</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Solusi jitu buat emak-emak yang pengen tetep produktif ngehasilin duit tapi tetep anonim. Makasih ilmunya!"</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer">
+                            <div class="avatar-minimal"><svg width="16" height="16"><use href="#icon-user"></use></svg></div>
+                            <span class="reviewer-name">Siti Aminah</span>
+                        </div>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="review-text">"Panduan paling masuk akal buat dipraktekin di sela-sela ngurus kerjaan rumah. Fix bintang lima!"</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRICING SECTION -->
+        <div class="section pricing-section">
+            <div class="price-label">Harga Normal:</div>
+            <div class="price-strike">Rp 99.000</div>
+            
+            <div class="price-label" style="margin-top: 16px; color: var(--accent);">Promo Khusus Hari Ini:</div>
+            <div class="price-final">19k</div>
+            <p>Rupiah aja! — Serius, lebih murah dari seporsi seblak komplit + es teh.</p>
+        </div>
+
+        <!-- CTA SECTION (Checkout Lynk.id) -->
+        <div class="cta-wrapper">
+            <a href="https://lynk.id/temankreatorid/p1pryp1w48r1" class="btn-primary">
+                <span>Gass Amankan Promonya!</span>
+                <!-- Minimalist Arrow Right SVG -->
+                <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="footer-note">
+                Cukup bayar sekali. Awas, harga promo ini bisa naik kapan aja ya!
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
