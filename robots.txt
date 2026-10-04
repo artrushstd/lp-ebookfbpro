@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://promofbpro.artrush.web.id/sitemap.xml
